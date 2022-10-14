@@ -1,34 +1,26 @@
 class Inventario{
+
     constructor(){
-        this.inventario = new Array(); 
+        this.primero = null; 
     }
 
-    agregar(codigo, producto)
+    agregar(producto)
     {
-        let agregado=false;
-       if((this.inventario.length === 0) || (this.inventario[this.inventario.length-1].getCodigo() < codigo))
-       {
-            this.inventario.push(producto);
-       }
-       else 
+        if (this.primero === null)
         {
-            let fin=this.inventario.length;
-            for(let i = 0; i < fin && !agregado; i++)
-            {
-                if(this.inventario[i].getCodigo() > codigo)
-                {   
-                    
-                    for(let j = this.inventario.length-1; j >= i; j--)
-                    {   
-                        this.inventario[j+1] = this.inventario[j];
-                    }
-                    this.inventario[i] = producto;
-                    agregado=true;
-                }
-            }
+            this.primero = producto;
         }
-        
+        else{
+            let temp = this.primero;
+            while (temp.next !== null)
+            { 
+                temp = temp.next;
+
+            }
+            temp.next = producto;
+        }
     }
+        
 
     buscar(codigo)
     {

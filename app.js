@@ -7,7 +7,7 @@ btnAgregar.addEventListener("click",()=>{
     let cantidad = document.getElementById("txtCantidad").value; 
     let costo = document.getElementById("txtCosto").value; 
     let producto = new Producto(codigo, nombre, cantidad, costo); 
-    inventario.agregar(codigo, producto);
+    inventario.agregar(producto);
     document.getElementById("divDetalles").innerHTML += "<p> Se agrego el producto </p>"; 
 });
 
