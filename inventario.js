@@ -71,7 +71,7 @@ class Inventario{
     {
         let listaProductos = ''; 
         let temp = this.primero;
-        
+
         while(temp !== null){
             listaProductos += temp.info();
             temp = temp.next;
@@ -83,11 +83,12 @@ class Inventario{
     listarInverso()
     {
         let listaInverso = ''; 
+        let temp = this.primero;
 
-        for(let i = this.inventario.length-1; i >= 0; i--)
-        {
-            listaInverso += this.inventario[i].info(); 
-        }
+        while(temp !== null){
+            listaInverso =  temp.info() +" "+ listaInverso;
+            temp = temp.next;
+        }  
 
         return listaInverso; 
     }
