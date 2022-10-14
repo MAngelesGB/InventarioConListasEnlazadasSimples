@@ -24,25 +24,16 @@ class Inventario{
 
     buscar(codigo)
     {
-        let primerValor  = 0; 
-        let ultimoValor = this.inventario.length - 1;
-        let valorMedio = 0; 
-        
-        while(primerValor <= ultimoValor)
-        {
-            valorMedio = Math.floor((primerValor+ultimoValor)/2);
-
-            if(this.inventario[valorMedio].getCodigo() === codigo)
-                return this.inventario[valorMedio];
-
-            else if(this.inventario[valorMedio].getCodigo() > codigo)
-                ultimoValor = valorMedio -1; 
-
-            else
-                primerValor = valorMedio +1;
-
+        let temp = this.primero;
+    
+        while (temp !== null)
+        { 
+            if(temp.codigo === codigo)
+            {
+                return temp; 
+            }
+            temp = temp.next;
         }
-
         return null; 
     }
 
