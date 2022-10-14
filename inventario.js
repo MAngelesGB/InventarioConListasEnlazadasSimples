@@ -70,10 +70,12 @@ class Inventario{
     listar()
     {
         let listaProductos = ''; 
-
-       this.inventario.forEach((producto) => {
-            listaProductos += producto.info();
-       });
+        let temp = this.primero;
+        
+        while(temp !== null){
+            listaProductos += temp.info();
+            temp = temp.next;
+        }  
 
         return listaProductos; 
     }
