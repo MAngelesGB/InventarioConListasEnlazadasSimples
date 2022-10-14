@@ -39,32 +39,23 @@ class Inventario{
 
     eliminar(codigo)
     {
-        let primerValor  = 0; 
-        let ultimoValor = this.inventario.length - 1;
-        let valorMedio = 0; 
-        
-        while(primerValor <= ultimoValor)
+        if (codigo === this.primero.codigo)
         {
-            valorMedio = Math.floor((primerValor+ultimoValor)/2);
-
-            if(this.inventario[valorMedio].getCodigo() === codigo)
-            {
-                for(let j = valorMedio; j <= ultimoValor; j++)
-                {   
-                    this.inventario[j]= this.inventario[j+1];
-                }
-                this.inventario.pop();
-            }
-            else if(this.inventario[valorMedio].getCodigo() > codigo)
-            { 
-                ultimoValor = valorMedio -1; 
-            }
-            else
-            {
-                primerValor = valorMedio +1;
-            }
-
+            this.primero = this.primero.next; 
         }
+        else
+        {
+            let temp = this.primero;
+            while (temp !== null)
+            { 
+                if(temp.next.codigo === codigo)
+                {
+                    temp.next = temp.next.next; 
+                }
+                temp = temp.next;
+            }
+        }
+
     }
 
     listar()
