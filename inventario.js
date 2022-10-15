@@ -20,6 +20,31 @@ class Inventario{
             temp.next = producto;
         }
     }
+
+    insertar(posicion, producto)
+    {
+       let pos = parseInt(posicion);
+        
+        if ( pos === 1)
+        {
+            producto.next = this.primero; 
+            this.primero = producto; 
+        }
+        else
+        {
+            let aux = this.primero;
+            let anterior;
+
+            for(let i = 0 ; i < pos-1; i++)
+            {
+                anterior = aux; 
+                aux = aux.next;
+            }
+
+            anterior.next = producto; 
+            producto.next = aux; 
+        }  
+    }
         
 
     buscar(codigo)
