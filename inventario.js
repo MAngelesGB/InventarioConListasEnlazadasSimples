@@ -62,22 +62,24 @@ class Inventario{
         return null; 
     }
 
-    eliminar(codigo)
+    eliminar(codigo) 
     {
-        if (codigo === this.primero.codigo)
+        if (codigo === this.primero.codigo) 
         {
             this.primero = this.primero.next; 
         }
         else
         {
-            let temp = this.primero;
-            while (temp !== null)
+            let temp = this.primero; 
+            while (temp !== null) 
             { 
-                if(temp.next.codigo === codigo)
+                if(temp.next !== null)
                 {
-                    temp.next = temp.next.next; 
+                    if(temp.next.codigo === codigo)
+                        temp.next = temp.next.next; 
                 }
-                temp = temp.next;
+                
+                temp = temp.next; 
             }
         }
 
